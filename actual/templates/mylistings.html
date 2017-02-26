@@ -1,0 +1,60 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    My Listings
+{% endblock %}
+
+{% block main %}
+
+<form action="{{ url_for('mylistings') }}" method="post">
+    <h1 class = "bebas font-green indexbox2" id = "trans-bg">My Listings</h1>
+
+            {% for textbook in textbooks %}
+                
+            <div class = "indexbox2" id = "trans-bg">
+                
+                <!-- listed/unlisted buttons changing -->
+                {% if textbook.status == 'listed' %}
+                <div style = "background-color: #ddff99; float: left;" id = "listedbubble">
+                <span class = "grandhotel font-gray font-med2">
+                status: 
+                </span>
+                <span class = "bodytext2">
+                {{textbook.status}}
+                </span>
+                </div>
+                
+                {% else %}
+                <div style = "background-color: #FFB6C1; float: left;" id = "unlistedbubble">
+                <span class = "grandhotel font-gray font-med2">
+                status: 
+                </span>
+                <span class = "bodytext2">
+                {{textbook.status}}
+                </span>
+                </div>
+                {% endif %}
+                
+                <div style = "float: left; margin-left: 15%;">
+                <div class = "grandhotel font-gray font-med2">
+                    {{textbook.textbook}} - 
+                    {{textbook.course}}
+                </div>
+                <div id = "price-heading">
+                    ${{textbook.price}}
+                </div>
+                </div>
+        
+                <br> </br>
+
+                <div style = "margin-top: 16%;">
+                
+                
+                <div class="form-group" class = "paddingup">
+                    <button class="btn-lg my-btn-default hvr-fade" name= "name" value= "{{textbook.listingid}}" type="submit">Change status of "{{textbook.textbook}}"</button>
+                </div>
+        </div>
+        </div>
+            {% endfor %}
+        </form> 
+    {% endblock %}

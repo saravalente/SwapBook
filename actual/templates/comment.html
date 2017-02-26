@@ -1,0 +1,26 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Comment
+{% endblock %}
+
+{% block main %}
+
+    <div style = "margin: 4% 20% 4% 20%;" class = "bebas font-med3 font-green indexbox3" id = "trans-bg">
+        <div style= "margin: auto; padding-bottom: 4%;">
+        Send a message about purchasing the book to {{username}}!
+        </div>
+        <form action="{{ url_for('comment') }}"  method="post">
+            <div class="form-group bodytext font-gray">
+                <label for="email" class="control-label">
+                </label>
+                <input autocomplete="off" autofucs class="form-control" name="message" placeholder="Send Message" type="text"/>
+                <div style = "margin-top: 3%;" class="form-group bodytext font-gray">
+                    <button class="btn-lg my-btn-default hvr-fade" name = "sendbutton" value={{listingid}} type="submit">
+                    Send
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
