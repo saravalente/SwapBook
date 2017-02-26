@@ -1,0 +1,52 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    My Listings
+{% endblock %}
+
+{% block main %}
+
+<form action="{{ url_for('history') }}" method="post">
+    <h1 class = "bebas font-green indexbox indexbox2" id = "trans-bg">My Listings</h1>
+
+            {% for textbook in textbooks %}
+            
+            <div class = "indexbox2" id = "trans-bg">
+                <div class = "grandhotel font-gray font-med2">
+                    {{textbook.textbook}} - 
+                    {{textbook.course}}
+                </div>
+                <div id = "price-heading">
+                    ${{textbook.price}}
+                </div>
+                <div>
+                <span class = "grandhotel font-gray font-med2">
+                    Seller: 
+                </span>
+                <span class = "bodytext2">
+                    {{textbook.email}}
+                </span>
+                </div>
+                <div>
+                <span class = "grandhotel font-gray font-med2">
+                Notes: 
+                </span>
+                <span class = "bodytext2">
+                {{textbook.notes}}
+                </span>
+                <div>
+                <span class = "grandhotel font-gray font-med2">
+                Status: 
+                </span>
+                <span class = "bodytext2">
+                {{textbook.status}}
+                </span>
+                </div>
+                </div>
+                <div class="form-group paddingup">
+                    <button class="btn-lg my-btn-default hvr-fade" name= "name" value= "{{textbook.listingid}}" type="submit">Change status of "{{textbook.textbook}}"</button>
+                </div>
+             </div>
+            {% endfor %}
+        </form> 
+    {% endblock %}
