@@ -9,7 +9,7 @@
 #  Implements a textbook resale website
 #
 
-
+ 
 from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_session import Session
 from passlib.apps import custom_app_context as pwd_context
