@@ -2,4 +2,4 @@ flask
 Flask-Session
 passlib
 SQLAlchemy
-request
+request 
